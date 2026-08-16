@@ -1,0 +1,4 @@
+[submodule "carbon-scheduler"]
+	path = carbon-scheduler
+	url = https://github.com/QuasarRay/carbon-scheduler.git
+	branch = dev-rs-v2
