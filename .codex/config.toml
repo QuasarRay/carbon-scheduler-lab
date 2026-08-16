@@ -1,0 +1,61 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "max"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 1
+max_depth = 1
+default_subagent_model = "gpt-5.6-sol"
+default_subagent_reasoning_effort = "max"
+interrupt_message = true
+
+[features.multi_agent_v2]
+max_concurrent_threads_per_session = 2
+
+[agents.aegis_explorer]
+description = "Read-only clean-context repository mapper; returns evidence, never delegates."
+config_file = "agents/aegis-explorer.toml"
+
+[agents.aegis_researcher]
+description = "Read-only primary-source researcher for current external facts; never delegates."
+config_file = "agents/aegis-researcher.toml"
+
+[agents.aegis_architect]
+description = "Read-only architecture analyst for one bounded design decision; never delegates."
+config_file = "agents/aegis-architect.toml"
+
+[agents.aegis_implementer]
+description = "Bounded write-capable implementer for an approved plan; never delegates."
+config_file = "agents/aegis-implementer.toml"
+
+[agents.aegis_diagnostician]
+description = "Read-only root-cause analyst for reproduced failures; never delegates."
+config_file = "agents/aegis-diagnostician.toml"
+
+[agents.aegis_migration_analyst]
+description = "Read-only migration and compatibility analyst for staged upgrades, rollback, data/API evolution, and mixed-version risks."
+config_file = "agents/aegis-migration-analyst.toml"
+
+[agents.aegis_test_engineer]
+description = "Read-only test-strategy engineer for acceptance coverage, regressions, flakiness, hidden-test risk, and production-path validation."
+config_file = "agents/aegis-test-engineer.toml"
+
+[agents.aegis_law_analyst]
+description = "Read-only behavioral-law analyst focused on invariant coverage and anti-overfitting."
+config_file = "agents/aegis-law-analyst.toml"
+
+[agents.aegis_adversarial_reviewer]
+description = "Read-only independent reviewer seeking counterexamples and weak evidence."
+config_file = "agents/aegis-adversarial-reviewer.toml"
+
+[agents.aegis_security_reviewer]
+description = "Read-only security/unsafe/supply-chain reviewer when justified."
+config_file = "agents/aegis-security-reviewer.toml"
+
+[agents.aegis_performance_reviewer]
+description = "Read-only measured performance/resource reviewer when justified."
+config_file = "agents/aegis-performance-reviewer.toml"
+
+[agents.aegis_verifier]
+description = "Read-only clean-context verifier of final acceptance gates from direct evidence."
+config_file = "agents/aegis-verifier.toml"
